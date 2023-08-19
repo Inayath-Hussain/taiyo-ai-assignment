@@ -1,0 +1,1 @@
+export const dataForAllCountriesURL = 'https://disease.sh/v3/covid-19/countries'

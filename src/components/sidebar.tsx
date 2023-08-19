@@ -10,7 +10,7 @@ const SideBar = () => {
     return (
         <>
             <div className={`${isSideBarClosed ? 'w-[10vw]' : '!w-[75vw]'} 
-        z-10 absolute h-screen bg-blue-300 transition-[width] duration-75 ease-linear justify-start flex flex-col items-center pt-1
+        z-[1010] absolute h-screen bg-blue-300 transition-[width] duration-75 ease-linear justify-start flex flex-col items-center pt-1
         mobile-end:w-[20vw] mobile-end:relative mobile-end:z-0`}>
 
 
