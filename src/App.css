@@ -1,0 +1,15 @@
+.hide-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+    -webkit-appearance: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.border-bottom {
+    border-bottom: 1px solid grey;
+}
