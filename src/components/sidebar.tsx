@@ -26,8 +26,8 @@ const SideBar = () => {
 
 
                 <div className={`${isSideBarClosed ? 'hidden' : 'flex'} mobile-end:flex mobile-end:mt-4 flex-col justify-start items-center`}>
-                    <Link to="/contacts" className='my-3 text-black font-semibold hover:text-white sm:text-lg lg:text-2xl'>Contacts</Link>
-                    <Link to="/chart-and-map" className='my-4 text-black font-semibold hover:text-white sm:text-lg sm:text-center lg:text-2xl'>Charts and Maps</Link>
+                    <Link to="/contacts" onClick={() => setIsSideBarClosed(true)} className='my-3 text-black font-semibold hover:text-white sm:text-lg lg:text-2xl'>Contacts</Link>
+                    <Link to="/chart-and-map" onClick={() => setIsSideBarClosed(true)} className='my-4 text-black font-semibold hover:text-white sm:text-lg sm:text-center lg:text-2xl'>Charts and Maps</Link>
                 </div>
 
             </div>
