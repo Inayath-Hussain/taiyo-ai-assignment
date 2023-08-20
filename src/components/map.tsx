@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { useRef } from 'react'
+// react-leaflet's Map has some missing attributes, were present in previous version and in api docs
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
@@ -10,8 +10,6 @@ import PopupData from './popupData'
 
 const Map = () => {
 
-    const ref = useRef();
-
     const allCountriesQuery = useQuery({
         queryKey: ['data for all countries'],
         queryFn: async () => {
@@ -20,6 +18,8 @@ const Map = () => {
         }
     })
 
+
+    // data to show in popup of marker
     const getPopupData = (data: IallCountriesQueryData) => {
         return [
             { label: 'Active Cases', data: data.active },
@@ -28,8 +28,9 @@ const Map = () => {
         ]
     }
 
+    // loading state
     if (allCountriesQuery.isLoading) {
-        return <h1 className='text-center'>Loading...</h1>
+        return <h1 className='text-center text-2xl md:text-6xl'>Loading Map...</h1>
     }
 
     return (
@@ -37,7 +38,7 @@ const Map = () => {
             <h1 className="text-xl py-4 sm:text-4xl sm:py-8 lg:text-5xlxl text-center">Map</h1>
 
 
-            <MapContainer ref={ref} className='w-full h-80 md:h-96' center={[20, 77]} zoom={5} scrollWheelZoom={false}>
+            <MapContainer className='w-full h-80 md:h-96' center={[20, 77]} zoom={5} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -45,7 +46,7 @@ const Map = () => {
 
                 {/* marker on all countries */}
                 {allCountriesQuery.data && allCountriesQuery.data.map(d => (
-                    <Marker position={[d.countryInfo.lat, d.countryInfo.long]}>
+                    <Marker position={[d.countryInfo.lat, d.countryInfo.long]} key={d.country}>
                         <Popup>
                             <p className='text-xs font-semibold text-center md:text-base'>{d.country}</p>
                             <PopupData data={getPopupData(d)} />

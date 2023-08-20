@@ -16,9 +16,11 @@ const NewContact = () => {
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+
+        // if either of the required field is empty error will be set and no action will be dispatched
         if (!firstName || !lastName) {
             setHasError(true)
-            return //error toast here
+            return
         }
 
         dispatch(add({ firstName, lastName, active: status }))

@@ -7,6 +7,7 @@ const Contacts = () => {
     const contacts = useSelector(selectContact)
     const dispatch = useDispatch()
 
+    // checks if the contacts is empty
     const noContactsFound = () => {
         return contacts.length === 0
     }
@@ -31,6 +32,7 @@ const Contacts = () => {
             <div className={`w-full flex flex-col items-center gap-2
             ${noContactsFound() ? '' : 'mobile-end:grid md:grid-cols-auto-2 md:gap-y-5 md:gap-x-3 lg:grid-cols-auto-3'}
             `}>
+                {/* empty contact message */}
                 {noContactsFound() ?
                     <div className='w-full'>
                         <p className='text-red-500 font-medium mobile-end:text-lg lg:text-xl'>No Contact Found</p>
@@ -38,7 +40,7 @@ const Contacts = () => {
                     </div>
                     :
                     contacts.map(i => (
-
+                        // contacts list
                         <div className="w-full rounded-md bg-white p-2 flex flex-row justify-around items-center 
                     mobile-end:rounded-xl mobile-end:w-auto mobile-end:p-3" key={i.id}>
 

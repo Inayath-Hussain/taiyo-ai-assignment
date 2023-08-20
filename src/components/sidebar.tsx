@@ -32,6 +32,7 @@ const SideBar = () => {
 
             </div>
 
+            {/* div to avoid re-adjusting of content in main page for mobile devices */}
             <div className='w-[10vw] bg-white mobile-end:hidden'></div>
         </>
     );

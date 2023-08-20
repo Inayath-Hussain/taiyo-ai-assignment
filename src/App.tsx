@@ -5,6 +5,7 @@ import Contacts from './pages/contacts'
 import ContactsId from './pages/contactDetail'
 import NewContact from './pages/newContact'
 import ChartAndMap from './pages/chartAndMap'
+import Index from './pages'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/contact/:id' element={<ContactsId />} />
           <Route path='/contacts' element={<Contacts />} />
           <Route path='/chart-and-map' element={<ChartAndMap />} />
+          <Route path='/' element={<Index />} />
         </Routes>
       </div>
     </>
