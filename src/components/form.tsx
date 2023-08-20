@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, PropsWithChildren, ReactNode, Children, isValidElement } from 'react'
+import { Dispatch, SetStateAction, PropsWithChildren, Children, isValidElement } from 'react'
 import RadioInput from './radioInput'
 
 interface Iprops {
@@ -9,8 +9,11 @@ interface Iprops {
 
 const Form: React.FC<PropsWithChildren<Iprops>> = ({ handleSubmit, setStatus, status, children }) => {
     const childrenArray = Children.toArray(children)
+
+    // grab all the button elements present in children
     const buttons = childrenArray.filter((child) => isValidElement(child) && child.type === 'button')
 
+    // remove button elements from children
     const childrenWithoutButton = childrenArray.filter((child) => isValidElement(child) && child.type !== 'button')
 
     return (

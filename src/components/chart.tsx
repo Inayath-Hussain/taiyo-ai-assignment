@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState, useRef, useEffect, useMemo } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import { Line } from 'react-chartjs-2'
 import { Chart as ChartJs, LineElement, CategoryScale, LinearScale, Tooltip, PointElement } from 'chart.js'
 import { useQuery } from '@tanstack/react-query';

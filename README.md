@@ -1,3 +1,4 @@
 # Contact Management with Charts and Maps
-
-clone repo and run npm install or yarn install first and then run npm run dev or yarn run dev
+## Steps to run locally
+1. Clone repo and run <code> npm install </code> or <code> yarn install </code> in your project terminal
+2. And then run <code> npm run dev </code> or <code> yarn run dev </code> to start react app
