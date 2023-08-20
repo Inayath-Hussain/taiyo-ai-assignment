@@ -11,6 +11,5 @@ export const formatNumber = (num: number) => {
             return (num / decimal).toFixed(1).replace(/\.0$/, '') + units[i];
         }
     }
-    console.log(num)
     return String(num);
 }
