@@ -40,6 +40,7 @@ const ContactsId = () => {
             return
         }
         dispatch(edit({ firstName, lastName, active: status, id }))
+        navigate('/contacts')
     }
 
     const handleDelete = () => {
