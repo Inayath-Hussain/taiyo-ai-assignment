@@ -98,7 +98,7 @@ const Chart = () => {
 
 
 
-            {(yAxisData) &&
+            {(yAxisData) ?
                 <div className='my-2 md:my-4'>
                     <Line
                         data={{ labels, datasets: [{ data: yAxisData, label: `${historicalQuery.data.country}`, backgroundColor: 'blue' }] }}
@@ -113,6 +113,9 @@ const Chart = () => {
                         }}
                     />
                 </div>
+                :
+                // loader for chart
+                <h1 className='text-center text-2xl md:text-6xl'>Loading Chart...</h1>
             }
         </>
     );
