@@ -22,6 +22,8 @@ const ContactsId = () => {
     useEffect(() => {
         const details = contacts.find(c => c.id === id)
 
+        // if user navigates by typing url then check will be done to see if a contact with the entered id exists, 
+        // if not navigated to contact page
         if (!details) return navigate('/contacts')
 
         setFirstName(details.firstName)
@@ -35,9 +37,10 @@ const ContactsId = () => {
         e.preventDefault()
         if (!firstName || !lastName) {
             setHasError(true)
-            return //error toast here
+            return
         }
         dispatch(edit({ firstName, lastName, active: status, id }))
+        navigate('/contacts')
     }
 
     const handleDelete = () => {

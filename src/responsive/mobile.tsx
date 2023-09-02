@@ -13,13 +13,11 @@ const Mobile: React.FC<PropsWithChildren> = ({ children }) => {
     useEffect(() => {
 
         const change = () => {
-            console.log(window.innerWidth, window.innerHeight)
             setScreenSize({ width: window.innerWidth, height: window.innerHeight })
         }
 
         setScreenSize({ width: window.innerWidth, height: window.innerHeight })
         window.addEventListener('resize', change)
-        console.log('useEffect')
 
         return () => {
             window.removeEventListener('resize', change)
