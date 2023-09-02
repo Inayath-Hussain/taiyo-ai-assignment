@@ -3,6 +3,8 @@
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { useDispatch } from 'react-redux'
+import { updateList } from '../redux/countriesSlice'
 import { dataForAllCountriesURL } from '../utilities/urls'
 import { IallCountriesQueryData } from '../interface'
 import PopupData from './popupData'
@@ -10,10 +12,19 @@ import PopupData from './popupData'
 
 const Map = () => {
 
+    const dispatch = useDispatch()
+
     const allCountriesQuery = useQuery({
         queryKey: ['data for all countries'],
         queryFn: async () => {
-            const response = await axios.get(dataForAllCountriesURL)
+            const countries = [] as string[]
+            const response = await axios.get<IallCountriesQueryData[]>(dataForAllCountriesURL)
+
+            response.data.forEach(r => {
+                countries.push(r.country)
+            })
+
+            dispatch(updateList(countries))
             return response.data as IallCountriesQueryData[]
         }
     })
